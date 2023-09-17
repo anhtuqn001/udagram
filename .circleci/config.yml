@@ -64,7 +64,7 @@ jobs:
           # TODO: Install, build, deploy in both apps
           command: |
             echo "# TODO: Install, build, deploy in both apps"
-            npm run backend:deploy
+            npm run api:deploy
       - run:
           name: Deploy Front-end App
           # TODO: Install, build, deploy in both apps
@@ -76,14 +76,3 @@ workflows:
   udagram:
     jobs:
       - build
-      - hold:
-          filters:
-            branches:
-              only:
-                - circleci-project-setup
-          type: approval
-          requires:
-            - build
-      - deploy:
-          requires:
-            - hold
